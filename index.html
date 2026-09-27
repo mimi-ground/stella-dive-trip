@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>스텔라 다이빙 투어 선택형 경로 플래너 v2</title>
+<style>
+:root{--bg:#08101d;--panel:#111b2e;--soft:#18243a;--line:#2c3c5b;--text:#f7f9fd;--muted:#aebbd0;--a:#69e3ff;--b:#a7f3d0;--warn:#ffe7a0}
+*{box-sizing:border-box} body{margin:0;background:linear-gradient(180deg,#07101d,#0c1525);color:var(--text);font-family:system-ui,-apple-system,"Noto Sans KR",sans-serif}
+.wrap{max-width:1220px;margin:auto;padding:22px} h1{margin:0 0 6px;font-size:29px} h2{font-size:18px;margin:0 0 12px}
+.sub,.small,.desc{color:var(--muted)} .sub{margin-bottom:16px;line-height:1.55}
+.notice{background:#2d2715;border:1px solid #5d4f20;padding:12px 14px;border-radius:14px;color:#ffe9a7;margin:14px 0}
+.grid{display:grid;grid-template-columns:1.2fr .8fr;gap:16px} .card{background:rgba(17,27,46,.97);border:1px solid var(--line);border-radius:18px;padding:17px}
+.option{display:flex;gap:12px;align-items:flex-start;padding:13px;border:1px solid var(--line);border-radius:14px;margin:10px 0;background:var(--soft);cursor:pointer}
+.option:hover{border-color:#55709d} .option input{margin-top:5px;transform:scale(1.18)} .grow{flex:1} .head{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.tag{font-size:12px;padding:2px 8px;background:#243652;border-radius:99px;color:#dbeafe} .distance{display:block;color:var(--b);font-size:14px;margin:5px 0}
+.desc{display:block;font-size:13px;line-height:1.5} .small{display:block;font-size:12px;margin-top:5px}
+.links{display:flex;flex-wrap:wrap;gap:7px;margin-top:8px} .links a{font-size:12px;color:#b8d8ff;text-decoration:none;border:1px solid #40577d;border-radius:9px;padding:5px 8px;background:#0c1628}
+select,button{width:100%;padding:11px;border-radius:11px;border:1px solid var(--line);background:#0c1628;color:white} button{cursor:pointer;background:linear-gradient(90deg,#155e75,#166534);border:0;font-weight:800}
+button.secondary{background:#263753} .row{display:grid;grid-template-columns:1fr 1fr;gap:10px} .control{margin:12px 0}
+.summary{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:14px} .stat{background:#0c1628;border:1px solid var(--line);border-radius:12px;text-align:center;padding:10px;font-size:12px;color:var(--muted)} .stat b{display:block;color:white;font-size:18px;margin-top:3px}
+.result{margin-top:16px} .day{border-left:4px solid var(--a);padding-left:14px;margin:18px 0} .stop{background:#0c1628;border:1px solid var(--line);border-radius:13px;padding:12px;margin:9px 0}
+.time{color:var(--b);font-weight:800} .route-meta{font-size:12px;color:var(--muted);margin-top:5px} .route-links a{font-size:12px;color:#9ec5ff;margin-right:10px}
+.badge{font-size:11px;padding:2px 7px;border-radius:99px;background:#4a3813;color:#ffe7a0;margin-left:5px}
+.footer{color:var(--muted);font-size:12px;line-height:1.6;margin-top:16px}
+@media(max-width:850px){.grid{grid-template-columns:1fr}.summary{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<h1>🌊 2026 강릉 스텔라 다이빙 투어 · 선택형 플래너</h1>
+<div class="sub">
+출발 기준: <b>해원다이브리조트 · 강릉 사천면 진리항구1길 15</b><br>
+10/2 밤 도착 · 10/3 3탱크 · 10/4 2탱크 · 10/4 20:00 대구 출발
+</div>
+
+<div class="notice">
+📌 <b>주소지 참고</b><br>
+해원다이브리조트는 사용자가 알려주신 <b>강원특별자치도 강릉시 사천면 진리항구1길 15</b>를
+출발 기준으로 적용했습니다. 일부 관광정보에는 <b>강릉시 사천면 진리항구길 45</b>로 표기되어 있어
+주소 표기가 서로 다를 수 있습니다.
+</div>
+
+<div class="grid">
+<section class="card">
+<h2>1. 가고 싶은 곳을 선택하세요</h2>
+
+<label class="option" data-km="16" data-mins="25">
+  <input type="checkbox" class="poi" value="aranabi">
+  <span class="grow">
+    <span class="head"><strong>아라나비 강릉점</strong><span class="tag">액티비티</span></span>
+    <span class="distance">🚗 해원다이브 기준 약 <b>16 km · 25분</b></span>
+    <span class="desc">남항진 해변에서 즐기는 체험형 액티비티 후보. 다이빙 후 짧게 움직이고 싶을 때 유리합니다.</span>
+    <span class="small">운영시간·기상 영향은 출발 전 확인 권장</span>
+    <span class="links">
+      <a href="https://www.google.com/maps/dir/?api=1&origin=%EA%B0%95%EC%9B%90%ED%8A%B9%EB%B3%84%EC%9E%90%EC%B9%98%EB%8F%84%20%EA%B0%95%EB%A6%89%EC%8B%9C%20%EC%82%AC%EC%B2%9C%EB%A9%B4%20%EC%A7%84%EB%A6%AC%ED%95%AD%EA%B5%AC1%EA%B8%B8%2015&destination=%EA%B0%95%EC%9B%90%ED%8A%B9%EB%B3%84%EC%9E%90%EC%B9%98%EB%8F%84%20%EA%B0%95%EB%A6%89%EC%8B%9C%20%EA%B3%B5%ED%95%AD%EA%B8%B8127%EB%B2%88%EA%B8%B8%2035-7&travelmode=driving" target="_blank" onclick="event.stopPropagation()">Google 길찾기</a>
+      <a href="https://map.naver.com/p/search/%EC%95%84%EB%9D%BC%EB%82%98%EB%B9%84%20%EA%B0%95%EB%A6%89%EC%A0%90" target="_blank" onclick="event.stopPropagation()">네이버지도</a>
+      <a href="https://www.google.com/search?q=%EC%95%84%EB%9D%BC%EB%82%98%EB%B9%84%20%EA%B0%95%EB%A6%89%EC%A0%90" target="_blank" onclick="event.stopPropagation()">상세정보</a>
+    </span>
+  </span>
+</label>
+<label class="option" data-km="13" data-mins="20">
+  <input type="checkbox" class="poi" value="budnamu">
+  <span class="grow">
+    <span class="head"><strong>버드나무 브루어리</strong><span class="tag">브루어리</span></span>
+    <span class="distance">🚗 해원다이브 기준 약 <b>13 km · 20분</b></span>
+    <span class="desc">옛 탁주 공장을 재생한 강릉 수제맥주 브루어리. 10/3 저녁 코스로 특히 적합합니다.</span>
+    <span class="small">수제맥주·식사 가능. 운전자는 음주 금지</span>
+    <span class="links">
+      <a href="https://www.google.com/maps/dir/?api=1&origin=%EA%B0%95%EC%9B%90%ED%8A%B9%EB%B3%84%EC%9E%90%EC%B9%98%EB%8F%84%20%EA%B0%95%EB%A6%89%EC%8B%9C%20%EC%82%AC%EC%B2%9C%EB%A9%B4%20%EC%A7%84%EB%A6%AC%ED%95%AD%EA%B5%AC1%EA%B8%B8%2015&destination=%EA%B0%95%EC%9B%90%ED%8A%B9%EB%B3%84%EC%9E%90%EC%B9%98%EB%8F%84%20%EA%B0%95%EB%A6%89%EC%8B%9C%20%EA%B2%BD%EA%B0%95%EB%A1%9C%201961&travelmode=driving" target="_blank" onclick="event.stopPropagation()">Google 길찾기</a>
+      <a href="https://map.naver.com/p/search/%EB%B2%84%EB%93%9C%EB%82%98%EB%AC%B4%20%EB%B8%8C%EB%A3%A8%EC%96%B4%EB%A6%AC" target="_blank" onclick="event.stopPropagation()">네이버지도</a>
+      <a href="https://www.badaon.or.kr/seantour_map/travel/destination/detail.do?destId=FCID110716" target="_blank" onclick="event.stopPropagation()">상세정보</a>
+    </span>
+  </span>
+</label>
+<label class="option" data-km="31" data-mins="45">
+  <input type="checkbox" class="poi" value="railbike">
+  <span class="grow">
+    <span class="head"><strong>정동진 레일바이크</strong><span class="tag">액티비티</span></span>
+    <span class="distance">🚗 해원다이브 기준 약 <b>31 km · 45분</b></span>
+    <span class="desc">동해 바다를 보며 타는 전동 보조 레일바이크. 예약 회차 시간이 정해져 있어 사전 예약이 좋습니다.</span>
+    <span class="small">5~10월 회차 운영. 탑승 10분 전 발권 권장</span>
+    <span class="links">
+      <a href="https://www.google.com/maps/dir/?api=1&origin=%EA%B0%95%EC%9B%90%ED%8A%B9%EB%B3%84%EC%9E%90%EC%B9%98%EB%8F%84%20%EA%B0%95%EB%A6%89%EC%8B%9C%20%EC%82%AC%EC%B2%9C%EB%A9%B4%20%EC%A7%84%EB%A6%AC%ED%95%AD%EA%B5%AC1%EA%B8%B8%2015&destination=%EA%B0%95%EC%9B%90%ED%8A%B9%EB%B3%84%EC%9E%90%EC%B9%98%EB%8F%84%20%EA%B0%95%EB%A6%89%EC%8B%9C%20%EA%B0%95%EB%8F%99%EB%A9%B4%20%EC%A0%95%EB%8F%99%EC%97%AD%EA%B8%B8%2017&travelmode=driving" target="_blank" onclick="event.stopPropagation()">Google 길찾기</a>
+      <a href="https://map.naver.com/p/search/%EC%A0%95%EB%8F%99%EC%A7%84%20%EB%A0%88%EC%9D%BC%EB%B0%94%EC%9D%B4%ED%81%AC" target="_blank" onclick="event.stopPropagation()">네이버지도</a>
+      <a href="https://www.railtrip.co.kr/homepage/jeongdongjin/" target="_blank" onclick="event.stopPropagation()">상세정보</a>
+    </span>
+  </span>
+</label>
+<label class="option" data-km="32" data-mins="40">
+  <input type="checkbox" class="poi" value="surfy">
+  <span class="grow">
+    <span class="head"><strong>서피비치</strong><span class="tag">액티비티</span></span>
+    <span class="distance">🚗 해원다이브 기준 약 <b>32 km · 40분</b></span>
+    <span class="desc">서핑·SUP·비치 액티비티. 10월에는 수온·파고와 다이빙 후 체력을 고려해 선택하는 카드입니다.</span>
+    <span class="small">서핑 입문강습·경험자 강습·SUP 프로그램 운영</span>
+    <span class="links">
+      <a href="https://www.google.com/maps/dir/?api=1&origin=%EA%B0%95%EC%9B%90%ED%8A%B9%EB%B3%84%EC%9E%90%EC%B9%98%EB%8F%84%20%EA%B0%95%EB%A6%89%EC%8B%9C%20%EC%82%AC%EC%B2%9C%EB%A9%B4%20%EC%A7%84%EB%A6%AC%ED%95%AD%EA%B5%AC1%EA%B8%B8%2015&destination=%EA%B0%95%EC%9B%90%ED%8A%B9%EB%B3%84%EC%9E%90%EC%B9%98%EB%8F%84%20%EC%96%91%EC%96%91%EA%B5%B0%20%ED%98%84%EB%B6%81%EB%A9%B4%20%ED%95%98%EC%A1%B0%EB%8C%80%ED%95%B4%EC%95%88%EA%B8%B8%20119&travelmode=driving" target="_blank" onclick="event.stopPropagation()">Google 길찾기</a>
+      <a href="https://map.naver.com/p/search/%EC%84%9C%ED%94%BC%EB%B9%84%EC%B9%98" target="_blank" onclick="event.stopPropagation()">네이버지도</a>
+      <a href="https://www.surfyy.com/" target="_blank" onclick="event.stopPropagation()">상세정보</a>
+    </span>
+  </span>
+</label>
+<label class="option" data-km="58" data-mins="60">
+  <input type="checkbox" class="poi" value="craftroot">
+  <span class="grow">
+    <span class="head"><strong>크래프트루트 속초</strong><span class="tag">브루어리</span></span>
+    <span class="distance">🚗 해원다이브 기준 약 <b>58 km · 60분</b></span>
+    <span class="desc">속초의 수제맥주 양조장 겸 브루펍. 여러 맥주를 비교해 보기 좋은 저녁 코스입니다.</span>
+    <span class="small">토요일 12:00~24:00, 일요일 12:00~23:00로 안내됨</span>
+    <span class="links">
+      <a href="https://www.google.com/maps/dir/?api=1&origin=%EA%B0%95%EC%9B%90%ED%8A%B9%EB%B3%84%EC%9E%90%EC%B9%98%EB%8F%84%20%EA%B0%95%EB%A6%89%EC%8B%9C%20%EC%82%AC%EC%B2%9C%EB%A9%B4%20%EC%A7%84%EB%A6%AC%ED%95%AD%EA%B5%AC1%EA%B8%B8%2015&destination=%EA%B0%95%EC%9B%90%ED%8A%B9%EB%B3%84%EC%9E%90%EC%B9%98%EB%8F%84%20%EC%86%8D%EC%B4%88%EC%8B%9C%20%EA%B4%80%EA%B4%91%EB%A1%9C%20418&travelmode=driving" target="_blank" onclick="event.stopPropagation()">Google 길찾기</a>
+      <a href="https://map.naver.com/p/search/%ED%81%AC%EB%9E%98%ED%94%84%ED%8A%B8%EB%A3%A8%ED%8A%B8%20%EC%86%8D%EC%B4%88" target="_blank" onclick="event.stopPropagation()">네이버지도</a>
+      <a href="https://craftroot.co.kr/" target="_blank" onclick="event.stopPropagation()">상세정보</a>
+    </span>
+  </span>
+</label>
+<label class="option" data-km="59" data-mins="60">
+  <input type="checkbox" class="poi" value="montbeer">
+  <span class="grow">
+    <span class="head"><strong>몽트비어</strong><span class="tag">브루어리</span></span>
+    <span class="distance">🚗 해원다이브 기준 약 <b>59 km · 60분</b></span>
+    <span class="desc">속초 학사평의 양조장 주점. 크래프트루트와 비교해 한 곳을 고르는 방식이 효율적입니다.</span>
+    <span class="small">토요일 13:30~23:00, 일요일 13:30~22:00로 안내됨</span>
+    <span class="links">
+      <a href="https://www.google.com/maps/dir/?api=1&origin=%EA%B0%95%EC%9B%90%ED%8A%B9%EB%B3%84%EC%9E%90%EC%B9%98%EB%8F%84%20%EA%B0%95%EB%A6%89%EC%8B%9C%20%EC%82%AC%EC%B2%9C%EB%A9%B4%20%EC%A7%84%EB%A6%AC%ED%95%AD%EA%B5%AC1%EA%B8%B8%2015&destination=%EA%B0%95%EC%9B%90%ED%8A%B9%EB%B3%84%EC%9E%90%EC%B9%98%EB%8F%84%20%EC%86%8D%EC%B4%88%EC%8B%9C%20%ED%95%99%EC%82%AC%ED%8F%89%EA%B8%B8%207-1&travelmode=driving" target="_blank" onclick="event.stopPropagation()">Google 길찾기</a>
+      <a href="https://map.naver.com/p/search/%EB%AA%BD%ED%8A%B8%EB%B9%84%EC%96%B4" target="_blank" onclick="event.stopPropagation()">네이버지도</a>
+      <a href="https://www.google.com/search?q=%EB%AA%BD%ED%8A%B8%EB%B9%84%EC%96%B4+%EC%86%8D%EC%B4%88" target="_blank" onclick="event.stopPropagation()">상세정보</a>
+    </span>
+  </span>
+</label>
+<label class="option" data-km="63" data-mins="65">
+  <input type="checkbox" class="poi" value="kart">
+  <span class="grow">
+    <span class="head"><strong>잼버리카트장</strong><span class="tag">액티비티</span></span>
+    <span class="distance">🚗 해원다이브 기준 약 <b>63 km · 65분</b></span>
+    <span class="desc">속도감과 경쟁 요소가 있는 카트 체험. 관광보다 액티비티를 선호하는 일행에게 잘 맞습니다.</span>
+    <span class="small">운영 여부·회차는 방문 전 확인</span>
+    <span class="links">
+      <a href="https://www.google.com/maps/dir/?api=1&origin=%EA%B0%95%EC%9B%90%ED%8A%B9%EB%B3%84%EC%9E%90%EC%B9%98%EB%8F%84%20%EA%B0%95%EB%A6%89%EC%8B%9C%20%EC%82%AC%EC%B2%9C%EB%A9%B4%20%EC%A7%84%EB%A6%AC%ED%95%AD%EA%B5%AC1%EA%B8%B8%2015&destination=%EA%B0%95%EC%9B%90%ED%8A%B9%EB%B3%84%EC%9E%90%EC%B9%98%EB%8F%84%20%EA%B3%A0%EC%84%B1%EA%B5%B0%20%ED%86%A0%EC%84%B1%EB%A9%B4%20%EC%9D%B8%ED%9D%A5%EB%A6%AC%20%EC%82%B062-22&travelmode=driving" target="_blank" onclick="event.stopPropagation()">Google 길찾기</a>
+      <a href="https://map.naver.com/p/search/%EC%9E%BC%EB%B2%84%EB%A6%AC%EC%B9%B4%ED%8A%B8%EC%9E%A5" target="_blank" onclick="event.stopPropagation()">네이버지도</a>
+      <a href="https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=a6f4a1b9-0546-45e0-a0a5-83cfa5974299" target="_blank" onclick="event.stopPropagation()">상세정보</a>
+    </span>
+  </span>
+</label>
+<label class="option" data-km="69" data-mins="70">
+  <input type="checkbox" class="poi" value="neungpada">
+  <span class="grow">
+    <span class="head"><strong>능파대</strong><span class="tag">풍경/산책</span></span>
+    <span class="distance">🚗 해원다이브 기준 약 <b>69 km · 70분</b></span>
+    <span class="desc">타포니 지형이 인상적인 해안 포인트. 목적지만 보고 가기보다 고성 북부 코스와 묶는 편이 낫습니다.</span>
+    <span class="small">상시 개방 안내</span>
+    <span class="links">
+      <a href="https://www.google.com/maps/dir/?api=1&origin=%EA%B0%95%EC%9B%90%ED%8A%B9%EB%B3%84%EC%9E%90%EC%B9%98%EB%8F%84%20%EA%B0%95%EB%A6%89%EC%8B%9C%20%EC%82%AC%EC%B2%9C%EB%A9%B4%20%EC%A7%84%EB%A6%AC%ED%95%AD%EA%B5%AC1%EA%B8%B8%2015&destination=%EA%B0%95%EC%9B%90%ED%8A%B9%EB%B3%84%EC%9E%90%EC%B9%98%EB%8F%84%20%EA%B3%A0%EC%84%B1%EA%B5%B0%20%EC%A3%BD%EC%99%95%EB%A9%B4%20%EA%B4%98%EC%A7%84%EA%B8%B8%2065&travelmode=driving" target="_blank" onclick="event.stopPropagation()">Google 길찾기</a>
+      <a href="https://map.naver.com/p/search/%EB%8A%A5%ED%8C%8C%EB%8C%80" target="_blank" onclick="event.stopPropagation()">네이버지도</a>
+      <a href="https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=5089f148-3547-4aef-bcfd-4ebe386aae83" target="_blank" onclick="event.stopPropagation()">상세정보</a>
+    </span>
+  </span>
+</label>
+<label class="option" data-km="75" data-mins="75">
+  <input type="checkbox" class="poi" value="songjiho">
+  <span class="grow">
+    <span class="head"><strong>송지호 + 왕곡마을</strong><span class="tag">풍경/문화</span></span>
+    <span class="distance">🚗 해원다이브 기준 약 <b>75 km · 75분</b></span>
+    <span class="desc">송지호와 전통마을을 함께 보는 북쪽 장거리 코스. 능파대와 묶으면 이동 효율이 좋아집니다.</span>
+    <span class="small">왕곡마을은 송지호 인근</span>
+    <span class="links">
+      <a href="https://www.google.com/maps/dir/?api=1&origin=%EA%B0%95%EC%9B%90%ED%8A%B9%EB%B3%84%EC%9E%90%EC%B9%98%EB%8F%84%20%EA%B0%95%EB%A6%89%EC%8B%9C%20%EC%82%AC%EC%B2%9C%EB%A9%B4%20%EC%A7%84%EB%A6%AC%ED%95%AD%EA%B5%AC1%EA%B8%B8%2015&destination=%EA%B0%95%EC%9B%90%ED%8A%B9%EB%B3%84%EC%9E%90%EC%B9%98%EB%8F%84%20%EA%B3%A0%EC%84%B1%EA%B5%B0%20%EC%A3%BD%EC%99%95%EB%A9%B4%20%EC%98%A4%EB%B4%89%EB%A6%AC&travelmode=driving" target="_blank" onclick="event.stopPropagation()">Google 길찾기</a>
+      <a href="https://map.naver.com/p/search/%EC%86%A1%EC%A7%80%ED%98%B8%20%2B%20%EC%99%95%EA%B3%A1%EB%A7%88%EC%9D%84" target="_blank" onclick="event.stopPropagation()">네이버지도</a>
+      <a href="https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=b0b683af-5a09-4ee1-95d3-66e649168ec6" target="_blank" onclick="event.stopPropagation()">상세정보</a>
+    </span>
+  </span>
+</label>
+<label class="option" data-km="108" data-mins="95">
+  <input type="checkbox" class="poi" value="guksundang">
+  <span class="grow">
+    <span class="head"><strong>국순당 주향로</strong><span class="tag">양조장</span></span>
+    <span class="distance">🚗 해원다이브 기준 약 <b>108 km · 95분</b></span>
+    <span class="desc">전통주 양조장 견학·전시·시음이 핵심인 목적지형 코스. 강릉에서 바로 다녀오기보다 귀가 동선 변형용으로 보세요.</span>
+    <span class="small">사전예약제. 법정공휴일 휴무 안내가 있어 10/4 일정은 반드시 예약 달력 확인</span>
+    <span class="links">
+      <a href="https://www.google.com/maps/dir/?api=1&origin=%EA%B0%95%EC%9B%90%ED%8A%B9%EB%B3%84%EC%9E%90%EC%B9%98%EB%8F%84%20%EA%B0%95%EB%A6%89%EC%8B%9C%20%EC%82%AC%EC%B2%9C%EB%A9%B4%20%EC%A7%84%EB%A6%AC%ED%95%AD%EA%B5%AC1%EA%B8%B8%2015&destination=%EA%B0%95%EC%9B%90%ED%8A%B9%EB%B3%84%EC%9E%90%EC%B9%98%EB%8F%84%20%ED%9A%A1%EC%84%B1%EA%B5%B0%20%EB%91%94%EB%82%B4%EB%A9%B4%20%EA%B0%95%EB%B3%80%EB%A1%9C%20975&travelmode=driving" target="_blank" onclick="event.stopPropagation()">Google 길찾기</a>
+      <a href="https://map.naver.com/p/search/%EA%B5%AD%EC%88%9C%EB%8B%B9%20%EC%A3%BC%ED%96%A5%EB%A1%9C" target="_blank" onclick="event.stopPropagation()">네이버지도</a>
+      <a href="https://drinkload.ksdb.co.kr/visit/new_visit_schedule_250217.asp" target="_blank" onclick="event.stopPropagation()">상세정보</a>
+    </span>
+  </span>
+</label>
+</section>
+
+<section class="card">
+<h2>2. 일정 조건</h2>
+<div class="row">
+<div class="control"><span class="small">10/3 다이빙 종료</span>
+<select id="day3end"><option value="1500">15:00</option><option value="1600">16:00</option><option value="1700">17:00</option></select></div>
+<div class="control"><span class="small">10/4 다이빙 종료</span>
+<select id="day4end"><option value="1200">12:00</option><option value="1300">13:00</option><option value="1400">14:00</option></select></div>
+</div>
+<div class="control"><span class="small">선호 스타일</span>
+<select id="style">
+<option value="active">액티비티 우선</option>
+<option value="drink">브루어리/양조장 우선</option>
+<option value="near">이동시간 최소</option>
+<option value="balanced">균형형</option>
+</select></div>
+
+<div class="notice" style="margin-top:12px">🚗 표시 거리·시간은 <b>자동차 이동 기준 계획용 예상치</b>입니다. 교통·도로상황에 따라 달라질 수 있으므로 각 카드의 <b>Google 길찾기</b> 버튼에서 출발 직전 실시간 경로를 확인하세요.</div>
+
+<div class="summary">
+<div class="stat">선택 장소<b id="count">0</b></div>
+<div class="stat">편도 운전 합계<b id="drive">0분</b></div>
+<div class="stat">체류시간 합계<b id="stay">0h</b></div>
+</div>
+
+<div class="row" style="margin-top:13px">
+<button onclick="buildRoute()">선택한 옵션으로 경로 만들기</button>
+<button class="secondary" onclick="resetAll()">초기화</button>
+</div>
+</section>
+</div>
+
+<section class="card result">
+<h2>3. 자동 추천 경로</h2>
+<div id="route"><span class="small">장소를 선택한 후 경로 만들기를 눌러주세요.</span></div>
+</section>
+
+<div class="footer">
+※ 브루어리·양조장 방문 시 다이빙 직후 바로 음주하지 말고 충분히 수분·식사를 하세요. 운전자는 음주하면 안 됩니다.<br>
+※ 예약형 시설은 실제 방문일 운영 여부를 상세정보 링크에서 확인하세요.
+</div>
+</div>
+
+<script>
+const P={
+'aranabi':{name:'아라나비 강릉점',category:'액티비티',km:16,drive:25,stay:70,day:'either',priority:'near active',address:'강원특별자치도 강릉시 공항길127번길 35-7',desc:'남항진 해변에서 즐기는 체험형 액티비티 후보. 다이빙 후 짧게 움직이고 싶을 때 유리합니다.',info:'https://www.google.com/search?q=%EC%95%84%EB%9D%BC%EB%82%98%EB%B9%84%20%EA%B0%95%EB%A6%89%EC%A0%90',gdir:'https://www.google.com/maps/dir/?api=1&origin=%EA%B0%95%EC%9B%90%ED%8A%B9%EB%B3%84%EC%9E%90%EC%B9%98%EB%8F%84%20%EA%B0%95%EB%A6%89%EC%8B%9C%20%EC%82%AC%EC%B2%9C%EB%A9%B4%20%EC%A7%84%EB%A6%AC%ED%95%AD%EA%B5%AC1%EA%B8%B8%2015&destination=%EA%B0%95%EC%9B%90%ED%8A%B9%EB%B3%84%EC%9E%90%EC%B9%98%EB%8F%84%20%EA%B0%95%EB%A6%89%EC%8B%9C%20%EA%B3%B5%ED%95%AD%EA%B8%B8127%EB%B2%88%EA%B8%B8%2035-7&travelmode=driving',naver:'https://map.naver.com/p/search/%EC%95%84%EB%9D%BC%EB%82%98%EB%B9%84%20%EA%B0%95%EB%A6%89%EC%A0%90'},
+'budnamu':{name:'버드나무 브루어리',category:'브루어리',km:13,drive:20,stay:110,day:'day3',priority:'near drink',address:'강원특별자치도 강릉시 경강로 1961',desc:'옛 탁주 공장을 재생한 강릉 수제맥주 브루어리. 10/3 저녁 코스로 특히 적합합니다.',info:'https://www.badaon.or.kr/seantour_map/travel/destination/detail.do?destId=FCID110716',gdir:'https://www.google.com/maps/dir/?api=1&origin=%EA%B0%95%EC%9B%90%ED%8A%B9%EB%B3%84%EC%9E%90%EC%B9%98%EB%8F%84%20%EA%B0%95%EB%A6%89%EC%8B%9C%20%EC%82%AC%EC%B2%9C%EB%A9%B4%20%EC%A7%84%EB%A6%AC%ED%95%AD%EA%B5%AC1%EA%B8%B8%2015&destination=%EA%B0%95%EC%9B%90%ED%8A%B9%EB%B3%84%EC%9E%90%EC%B9%98%EB%8F%84%20%EA%B0%95%EB%A6%89%EC%8B%9C%20%EA%B2%BD%EA%B0%95%EB%A1%9C%201961&travelmode=driving',naver:'https://map.naver.com/p/search/%EB%B2%84%EB%93%9C%EB%82%98%EB%AC%B4%20%EB%B8%8C%EB%A3%A8%EC%96%B4%EB%A6%AC'},
+'railbike':{name:'정동진 레일바이크',category:'액티비티',km:31,drive:45,stay:100,day:'day4',priority:'active',address:'강원특별자치도 강릉시 강동면 정동역길 17',desc:'동해 바다를 보며 타는 전동 보조 레일바이크. 예약 회차 시간이 정해져 있어 사전 예약이 좋습니다.',info:'https://www.railtrip.co.kr/homepage/jeongdongjin/',gdir:'https://www.google.com/maps/dir/?api=1&origin=%EA%B0%95%EC%9B%90%ED%8A%B9%EB%B3%84%EC%9E%90%EC%B9%98%EB%8F%84%20%EA%B0%95%EB%A6%89%EC%8B%9C%20%EC%82%AC%EC%B2%9C%EB%A9%B4%20%EC%A7%84%EB%A6%AC%ED%95%AD%EA%B5%AC1%EA%B8%B8%2015&destination=%EA%B0%95%EC%9B%90%ED%8A%B9%EB%B3%84%EC%9E%90%EC%B9%98%EB%8F%84%20%EA%B0%95%EB%A6%89%EC%8B%9C%20%EA%B0%95%EB%8F%99%EB%A9%B4%20%EC%A0%95%EB%8F%99%EC%97%AD%EA%B8%B8%2017&travelmode=driving',naver:'https://map.naver.com/p/search/%EC%A0%95%EB%8F%99%EC%A7%84%20%EB%A0%88%EC%9D%BC%EB%B0%94%EC%9D%B4%ED%81%AC'},
+'surfy':{name:'서피비치',category:'액티비티',km:32,drive:40,stay:150,day:'day4',priority:'active',address:'강원특별자치도 양양군 현북면 하조대해안길 119',desc:'서핑·SUP·비치 액티비티. 10월에는 수온·파고와 다이빙 후 체력을 고려해 선택하는 카드입니다.',info:'https://www.surfyy.com/',gdir:'https://www.google.com/maps/dir/?api=1&origin=%EA%B0%95%EC%9B%90%ED%8A%B9%EB%B3%84%EC%9E%90%EC%B9%98%EB%8F%84%20%EA%B0%95%EB%A6%89%EC%8B%9C%20%EC%82%AC%EC%B2%9C%EB%A9%B4%20%EC%A7%84%EB%A6%AC%ED%95%AD%EA%B5%AC1%EA%B8%B8%2015&destination=%EA%B0%95%EC%9B%90%ED%8A%B9%EB%B3%84%EC%9E%90%EC%B9%98%EB%8F%84%20%EC%96%91%EC%96%91%EA%B5%B0%20%ED%98%84%EB%B6%81%EB%A9%B4%20%ED%95%98%EC%A1%B0%EB%8C%80%ED%95%B4%EC%95%88%EA%B8%B8%20119&travelmode=driving',naver:'https://map.naver.com/p/search/%EC%84%9C%ED%94%BC%EB%B9%84%EC%B9%98'},
+'craftroot':{name:'크래프트루트 속초',category:'브루어리',km:58,drive:60,stay:120,day:'day3',priority:'drink',address:'강원특별자치도 속초시 관광로 418',desc:'속초의 수제맥주 양조장 겸 브루펍. 여러 맥주를 비교해 보기 좋은 저녁 코스입니다.',info:'https://craftroot.co.kr/',gdir:'https://www.google.com/maps/dir/?api=1&origin=%EA%B0%95%EC%9B%90%ED%8A%B9%EB%B3%84%EC%9E%90%EC%B9%98%EB%8F%84%20%EA%B0%95%EB%A6%89%EC%8B%9C%20%EC%82%AC%EC%B2%9C%EB%A9%B4%20%EC%A7%84%EB%A6%AC%ED%95%AD%EA%B5%AC1%EA%B8%B8%2015&destination=%EA%B0%95%EC%9B%90%ED%8A%B9%EB%B3%84%EC%9E%90%EC%B9%98%EB%8F%84%20%EC%86%8D%EC%B4%88%EC%8B%9C%20%EA%B4%80%EA%B4%91%EB%A1%9C%20418&travelmode=driving',naver:'https://map.naver.com/p/search/%ED%81%AC%EB%9E%98%ED%94%84%ED%8A%B8%EB%A3%A8%ED%8A%B8%20%EC%86%8D%EC%B4%88'},
+'montbeer':{name:'몽트비어',category:'브루어리',km:59,drive:60,stay:110,day:'day3',priority:'drink',address:'강원특별자치도 속초시 학사평길 7-1',desc:'속초 학사평의 양조장 주점. 크래프트루트와 비교해 한 곳을 고르는 방식이 효율적입니다.',info:'https://www.google.com/search?q=%EB%AA%BD%ED%8A%B8%EB%B9%84%EC%96%B4+%EC%86%8D%EC%B4%88',gdir:'https://www.google.com/maps/dir/?api=1&origin=%EA%B0%95%EC%9B%90%ED%8A%B9%EB%B3%84%EC%9E%90%EC%B9%98%EB%8F%84%20%EA%B0%95%EB%A6%89%EC%8B%9C%20%EC%82%AC%EC%B2%9C%EB%A9%B4%20%EC%A7%84%EB%A6%AC%ED%95%AD%EA%B5%AC1%EA%B8%B8%2015&destination=%EA%B0%95%EC%9B%90%ED%8A%B9%EB%B3%84%EC%9E%90%EC%B9%98%EB%8F%84%20%EC%86%8D%EC%B4%88%EC%8B%9C%20%ED%95%99%EC%82%AC%ED%8F%89%EA%B8%B8%207-1&travelmode=driving',naver:'https://map.naver.com/p/search/%EB%AA%BD%ED%8A%B8%EB%B9%84%EC%96%B4'},
+'kart':{name:'잼버리카트장',category:'액티비티',km:63,drive:65,stay:80,day:'day4',priority:'active',address:'강원특별자치도 고성군 토성면 인흥리 산62-22',desc:'속도감과 경쟁 요소가 있는 카트 체험. 관광보다 액티비티를 선호하는 일행에게 잘 맞습니다.',info:'https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=a6f4a1b9-0546-45e0-a0a5-83cfa5974299',gdir:'https://www.google.com/maps/dir/?api=1&origin=%EA%B0%95%EC%9B%90%ED%8A%B9%EB%B3%84%EC%9E%90%EC%B9%98%EB%8F%84%20%EA%B0%95%EB%A6%89%EC%8B%9C%20%EC%82%AC%EC%B2%9C%EB%A9%B4%20%EC%A7%84%EB%A6%AC%ED%95%AD%EA%B5%AC1%EA%B8%B8%2015&destination=%EA%B0%95%EC%9B%90%ED%8A%B9%EB%B3%84%EC%9E%90%EC%B9%98%EB%8F%84%20%EA%B3%A0%EC%84%B1%EA%B5%B0%20%ED%86%A0%EC%84%B1%EB%A9%B4%20%EC%9D%B8%ED%9D%A5%EB%A6%AC%20%EC%82%B062-22&travelmode=driving',naver:'https://map.naver.com/p/search/%EC%9E%BC%EB%B2%84%EB%A6%AC%EC%B9%B4%ED%8A%B8%EC%9E%A5'},
+'neungpada':{name:'능파대',category:'풍경/산책',km:69,drive:70,stay:55,day:'either',priority:'sight',address:'강원특별자치도 고성군 죽왕면 괘진길 65',desc:'타포니 지형이 인상적인 해안 포인트. 목적지만 보고 가기보다 고성 북부 코스와 묶는 편이 낫습니다.',info:'https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=5089f148-3547-4aef-bcfd-4ebe386aae83',gdir:'https://www.google.com/maps/dir/?api=1&origin=%EA%B0%95%EC%9B%90%ED%8A%B9%EB%B3%84%EC%9E%90%EC%B9%98%EB%8F%84%20%EA%B0%95%EB%A6%89%EC%8B%9C%20%EC%82%AC%EC%B2%9C%EB%A9%B4%20%EC%A7%84%EB%A6%AC%ED%95%AD%EA%B5%AC1%EA%B8%B8%2015&destination=%EA%B0%95%EC%9B%90%ED%8A%B9%EB%B3%84%EC%9E%90%EC%B9%98%EB%8F%84%20%EA%B3%A0%EC%84%B1%EA%B5%B0%20%EC%A3%BD%EC%99%95%EB%A9%B4%20%EA%B4%98%EC%A7%84%EA%B8%B8%2065&travelmode=driving',naver:'https://map.naver.com/p/search/%EB%8A%A5%ED%8C%8C%EB%8C%80'},
+'songjiho':{name:'송지호 + 왕곡마을',category:'풍경/문화',km:75,drive:75,stay:110,day:'day4',priority:'sight',address:'강원특별자치도 고성군 죽왕면 오봉리',desc:'송지호와 전통마을을 함께 보는 북쪽 장거리 코스. 능파대와 묶으면 이동 효율이 좋아집니다.',info:'https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=b0b683af-5a09-4ee1-95d3-66e649168ec6',gdir:'https://www.google.com/maps/dir/?api=1&origin=%EA%B0%95%EC%9B%90%ED%8A%B9%EB%B3%84%EC%9E%90%EC%B9%98%EB%8F%84%20%EA%B0%95%EB%A6%89%EC%8B%9C%20%EC%82%AC%EC%B2%9C%EB%A9%B4%20%EC%A7%84%EB%A6%AC%ED%95%AD%EA%B5%AC1%EA%B8%B8%2015&destination=%EA%B0%95%EC%9B%90%ED%8A%B9%EB%B3%84%EC%9E%90%EC%B9%98%EB%8F%84%20%EA%B3%A0%EC%84%B1%EA%B5%B0%20%EC%A3%BD%EC%99%95%EB%A9%B4%20%EC%98%A4%EB%B4%89%EB%A6%AC&travelmode=driving',naver:'https://map.naver.com/p/search/%EC%86%A1%EC%A7%80%ED%98%B8%20%2B%20%EC%99%95%EA%B3%A1%EB%A7%88%EC%9D%84'},
+'guksundang':{name:'국순당 주향로',category:'양조장',km:108,drive:95,stay:130,day:'day4',priority:'drink far',address:'강원특별자치도 횡성군 둔내면 강변로 975',desc:'전통주 양조장 견학·전시·시음이 핵심인 목적지형 코스. 강릉에서 바로 다녀오기보다 귀가 동선 변형용으로 보세요.',info:'https://drinkload.ksdb.co.kr/visit/new_visit_schedule_250217.asp',gdir:'https://www.google.com/maps/dir/?api=1&origin=%EA%B0%95%EC%9B%90%ED%8A%B9%EB%B3%84%EC%9E%90%EC%B9%98%EB%8F%84%20%EA%B0%95%EB%A6%89%EC%8B%9C%20%EC%82%AC%EC%B2%9C%EB%A9%B4%20%EC%A7%84%EB%A6%AC%ED%95%AD%EA%B5%AC1%EA%B8%B8%2015&destination=%EA%B0%95%EC%9B%90%ED%8A%B9%EB%B3%84%EC%9E%90%EC%B9%98%EB%8F%84%20%ED%9A%A1%EC%84%B1%EA%B5%B0%20%EB%91%94%EB%82%B4%EB%A9%B4%20%EA%B0%95%EB%B3%80%EB%A1%9C%20975&travelmode=driving',naver:'https://map.naver.com/p/search/%EA%B5%AD%EC%88%9C%EB%8B%B9%20%EC%A3%BC%ED%96%A5%EB%A1%9C'}
+};
+
+function hhmm(v){const n=parseInt(v);return Math.floor(n/100)*60+(n%100)}
+function fmt(m){m=Math.round(m); return String(Math.floor(m/60)%24).padStart(2,'0')+':'+String(m%60).padStart(2,'0')}
+function selected(){return [...document.querySelectorAll('.poi:checked')].map(x=>P[x.value])}
+function score(x,style){
+ let s=x.drive;
+ if(style==='active' && x.priority.includes('active')) s-=30;
+ if(style==='drink' && x.priority.includes('drink')) s-=30;
+ if(style==='near') s=x.drive*1.5;
+ if(style==='balanced') s=x.drive;
+ return s;
+}
+
+function buildRoute(){
+ const arr=selected(), style=document.getElementById('style').value;
+ if(!arr.length){document.getElementById('route').innerHTML='<span class="small">최소 1개 이상 선택해주세요.</span>';return}
+ arr.sort((a,b)=>score(a,style)-score(b,style));
+ let d3=[],d4=[],used=new Set();
+
+ // 명확한 날짜 우선
+ arr.filter(x=>x.day==='day3').forEach(x=>{d3.push(x);used.add(x.name)});
+ arr.filter(x=>x.day==='day4').forEach(x=>{d4.push(x);used.add(x.name)});
+
+ // either 항목은 총 소요시간이 적은 날에 배분
+ arr.filter(x=>x.day==='either').forEach(x=>{
+   const t3=d3.reduce((s,p)=>s+p.drive*2+p.stay,0);
+   const t4=d4.reduce((s,p)=>s+p.drive*2+p.stay,0);
+   (t3<=t4?d3:d4).push(x);
+ });
+
+ let out='';
+ const renderDay=(title,list,start,isDay4)=>{
+   let t=start;
+   out+=`<div class="day"><h3>${title}</h3>`;
+   out+=`<div class="stop"><span class="time">${fmt(t-45)}~${fmt(t)}</span> 다이빙 종료 · 샤워/장비정리/수분 보충</div>`;
+   let prev='해원다이브리조트';
+   list.forEach((x,i)=>{
+      t += x.drive;
+      const st=t, en=t+x.stay;
+      const late=isDay4 && en>19*60;
+      out+=`<div class="stop">
+        <span class="time">${fmt(st)}~${fmt(en)}</span> <b>${x.name}</b>${late?'<span class="badge">20시 출발 주의</span>':''}
+        <div class="route-meta">🚗 해원다이브 기준 약 ${x.km} km · ${x.drive}분 / 현지 체류 약 ${Math.round(x.stay/60*10)/10}시간</div>
+        <div class="route-meta">${x.desc}</div>
+        <div class="route-links"><a target="_blank" href="${x.gdir}">Google 길찾기</a><a target="_blank" href="${x.naver}">네이버지도</a><a target="_blank" href="${x.info}">상세정보</a></div>
+      </div>`;
+      t=en;
+   });
+   if(!list.length) out+=`<div class="stop"><span class="small">선택된 일정 없음 — 자유시간</span></div>`;
+   if(isDay4) out+=`<div class="stop"><span class="time">20:00</span> <b>대구 출발 예정</b></div>`;
+   out+='</div>';
+ };
+
+ renderDay('10월 3일 · 3탱크 후',d3,hhmm(document.getElementById('day3end').value)+45,false);
+ renderDay('10월 4일 · 2탱크 후',d4,hhmm(document.getElementById('day4end').value)+60,true);
+ document.getElementById('route').innerHTML=out;
+
+ document.getElementById('count').textContent=arr.length;
+ document.getElementById('drive').textContent=arr.reduce((s,p)=>s+p.drive,0)+'분';
+ document.getElementById('stay').textContent=(arr.reduce((s,p)=>s+p.stay,0)/60).toFixed(1)+'h';
+}
+function resetAll(){
+ document.querySelectorAll('.poi').forEach(x=>x.checked=false);
+ document.getElementById('route').innerHTML='<span class="small">장소를 선택한 후 경로 만들기를 눌러주세요.</span>';
+ document.getElementById('count').textContent='0'; document.getElementById('drive').textContent='0분'; document.getElementById('stay').textContent='0h';
+}
+</script>
+</body>
+</html>
