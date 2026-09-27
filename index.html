@@ -10,7 +10,7 @@
 .wrap{max-width:1220px;margin:auto;padding:22px} h1{margin:0 0 6px;font-size:29px} h2{font-size:18px;margin:0 0 12px}
 .sub,.small,.desc{color:var(--muted)} .sub{margin-bottom:16px;line-height:1.55}
 .notice{background:#2d2715;border:1px solid #5d4f20;padding:12px 14px;border-radius:14px;color:#ffe9a7;margin:14px 0}
-.grid{display:grid;grid-template-columns:1.2fr .8fr;gap:16px} .card{background:rgba(17,27,46,.97);border:1px solid var(--line);border-radius:18px;padding:17px}
+.grid{display:grid;grid-template-columns:1.2fr .8fr;gap:16px;align-items:start} .card{background:rgba(17,27,46,.97);border:1px solid var(--line);border-radius:18px;padding:17px}.side{position:sticky;top:16px;display:grid;gap:16px}.side .result{margin-top:0;max-height:calc(100vh - 32px);overflow:auto;scrollbar-width:thin}
 .option{display:flex;gap:12px;align-items:flex-start;padding:13px;border:1px solid var(--line);border-radius:14px;margin:10px 0;background:var(--soft);cursor:pointer}
 .option:hover{border-color:#55709d} .option input{margin-top:5px;transform:scale(1.18)} .grow{flex:1} .head{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
 .tag{font-size:12px;padding:2px 8px;background:#243652;border-radius:99px;color:#dbeafe} .distance{display:block;color:var(--b);font-size:14px;margin:5px 0}
@@ -21,9 +21,9 @@ button.secondary{background:#263753} .row{display:grid;grid-template-columns:1fr
 .summary{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:14px} .stat{background:#0c1628;border:1px solid var(--line);border-radius:12px;text-align:center;padding:10px;font-size:12px;color:var(--muted)} .stat b{display:block;color:white;font-size:18px;margin-top:3px}
 .result{margin-top:16px} .day{border-left:4px solid var(--a);padding-left:14px;margin:18px 0} .stop{background:#0c1628;border:1px solid var(--line);border-radius:13px;padding:12px;margin:9px 0}
 .time{color:var(--b);font-weight:800} .route-meta{font-size:12px;color:var(--muted);margin-top:5px} .route-links a{font-size:12px;color:#9ec5ff;margin-right:10px}
-.badge{font-size:11px;padding:2px 7px;border-radius:99px;background:#4a3813;color:#ffe7a0;margin-left:5px}
+.badge{font-size:11px;padding:2px 7px;border-radius:99px;background:#4a3813;color:#ffe7a0;margin-left:5px}.mapbox{background:#0a1322;border:1px solid var(--line);border-radius:14px;padding:13px;margin:12px 0 16px}.maptitle{font-weight:800;margin-bottom:8px}.route-map{display:flex;align-items:center;gap:8px;overflow-x:auto;padding:10px 2px 12px}.route-node{min-width:125px;max-width:180px;padding:9px 10px;border-radius:12px;background:#17233a;border:1px solid #395274;text-align:center;font-size:12px;line-height:1.35}.route-node.origin{border-color:#67e8f9}.route-arrow{font-size:20px;color:#7dd3fc;flex:0 0 auto}.map-actions{display:flex;gap:8px;flex-wrap:wrap}.map-actions a{font-size:12px;color:#dbeafe;text-decoration:none;border:1px solid #40577d;border-radius:9px;padding:7px 9px;background:#13213a}.map-note{font-size:11px;color:var(--muted);margin-top:8px;line-height:1.4}
 .footer{color:var(--muted);font-size:12px;line-height:1.6;margin-top:16px}
-@media(max-width:850px){.grid{grid-template-columns:1fr}.summary{grid-template-columns:1fr}}
+@media(max-width:850px){.grid{grid-template-columns:1fr}.summary{grid-template-columns:1fr}.side{position:static}.side .result{max-height:none;overflow:visible}.route-map{padding-bottom:8px}}
 </style>
 </head>
 <body>
@@ -187,6 +187,7 @@ button.secondary{background:#263753} .row{display:grid;grid-template-columns:1fr
 </label>
 </section>
 
+<div class="side">
 <section class="card">
 <h2>2. 일정 조건</h2>
 <div class="row">
@@ -216,12 +217,13 @@ button.secondary{background:#263753} .row{display:grid;grid-template-columns:1fr
 <button class="secondary" onclick="resetAll()">초기화</button>
 </div>
 </section>
-</div>
 
-<section class="card result">
+<section class="card result" id="resultCard">
 <h2>3. 자동 추천 경로</h2>
 <div id="route"><span class="small">장소를 선택한 후 경로 만들기를 눌러주세요.</span></div>
 </section>
+</div>
+</div>
 
 <div class="footer">
 ※ 브루어리·양조장 방문 시 다이빙 직후 바로 음주하지 말고 충분히 수분·식사를 하세요. 운전자는 음주하면 안 됩니다.<br>
@@ -253,6 +255,26 @@ function score(x,style){
  if(style==='near') s=x.drive*1.5;
  if(style==='balanced') s=x.drive;
  return s;
+}
+
+function googleFullRoute(list){
+ if(!list.length) return '#';
+ const origin='강원특별자치도 강릉시 사천면 진리항구1길 15';
+ const dest=list[list.length-1].address;
+ const waypoints=list.slice(0,-1).map(x=>x.address).join('|');
+ let url='https://www.google.com/maps/dir/?api=1&travelmode=driving&origin='+encodeURIComponent(origin)+'&destination='+encodeURIComponent(dest);
+ if(waypoints) url+='&waypoints='+encodeURIComponent(waypoints);
+ return url;
+}
+function renderRouteMap(title,list){
+ const origin='<div class="route-node origin">📍 해원다이브리조트</div>';
+ let nodes=origin;
+ list.forEach(x=>{nodes+='<span class="route-arrow">→</span><div class="route-node"><b>'+x.name+'</b><br><span class="small">'+x.km+'km · 약 '+x.drive+'분</span></div>'});
+ if(!list.length) nodes+='<span class="route-arrow">→</span><div class="route-node">자유시간</div>';
+ const link=googleFullRoute(list);
+ return '<div class="mapbox"><div class="maptitle">🗺️ '+title+' 경로맵</div><div class="route-map">'+nodes+'</div>'+
+   (list.length?'<div class="map-actions"><a target="_blank" href="'+link+'">Google 지도에서 전체 경로 보기</a></div>':'')+
+   '<div class="map-note">선택한 방문 순서를 한눈에 보여주는 경로맵입니다. 실제 도로 경로·교통시간은 Google 지도 링크에서 확인하세요.</div></div>';
 }
 
 function buildRoute(){
@@ -297,7 +319,9 @@ function buildRoute(){
 
  renderDay('10월 3일 · 3탱크 후',d3,hhmm(document.getElementById('day3end').value)+45,false);
  renderDay('10월 4일 · 2탱크 후',d4,hhmm(document.getElementById('day4end').value)+60,true);
+ out = renderRouteMap('10월 3일',d3) + renderRouteMap('10월 4일',d4) + out;
  document.getElementById('route').innerHTML=out;
+ if(window.innerWidth<=850){ document.getElementById('resultCard').scrollIntoView({behavior:'smooth',block:'start'}); }
 
  document.getElementById('count').textContent=arr.length;
  document.getElementById('drive').textContent=arr.reduce((s,p)=>s+p.drive,0)+'분';
